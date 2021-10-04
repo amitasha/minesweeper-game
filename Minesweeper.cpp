@@ -125,6 +125,14 @@ int countAdjacentMines(int row, int col, int mines[][2],
 			if (isMine (row+1, col-1, realBoard) == true)
 			count++;
 		}
+	
+	//----------- 9th Neighbour (South-West) ------------
+
+		if (isValid (row+1, col-1) == true)
+		{
+			if (isMine (row+1, col-1, realBoard) == true)
+			count++;
+		}
 
 	return (count);
 }
@@ -339,6 +347,7 @@ void chooseDifficultyLevel ()
 	printf ("Press 0 for BEGINNER (9 * 9 Cells and 10 Mines)\n");
 	printf ("Press 1 for INTERMEDIATE (16 * 16 Cells and 40 Mines)\n");
 	printf ("Press 2 for ADVANCED (24 * 24 Cells and 99 Mines)\n");
+	printf ("Press 2 for SUPER ADVANCED (50 * 50 Cells and 99 Mines)\n");
 
 	scanf ("%d", &level);
 
@@ -358,6 +367,11 @@ void chooseDifficultyLevel ()
 	{
 		SIDE = 24;
 		MINES = 99;
+	}
+	if (level == SUPERADVANCED)
+	{
+		SIDE = 50;
+		MINES = 199;
 	}
 
 	return;
